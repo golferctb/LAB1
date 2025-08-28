@@ -1,0 +1,56 @@
+---
+title: "Testing for Lab 1"
+author: "Cale Bible"
+date: "r Sys.date()"
+output: 
+  html_document: 
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Tasks
+
+These are the tasks for the first lab.
+
+## Task 1
+
+```{r, include=TRUE}
+setwd("C:/Users/golfe/Desktop/Applied Statistical Methods/LAB1")
+getwd()
+list.files()
+```
+## Task 2
+
+Reading in the data into ddt.
+```{r}
+ddt <- read.csv("Dataxls/Dataxls/DDT.csv")
+head(ddt)
+```
+
+## Task 3
+- Using class() function, we can conclude that SPECIES and RIVER classes are quantitative data, since they have character values.
+```{r}
+class(ddt$SPECIES)
+class(ddt$RIVER)
+```
+- Likewise, we can conclude the quantitative variables of the data frame are: MILE, LENGTH, and WEIGHT
+```{r}
+class(ddt$MILE)
+class(ddt$LENGTH)
+class(ddt$WEIGHT)
+```
+Next, finding observations with SPECIES, LMBASS and WEIGHT bigger than 800gms. We set species equal to "LMBASS" and WEIGHT>800.
+```{r}
+#FIXME
+sbst=with(ddt,table(SPECIES=="LMBASS", WEIGHT>800))
+```
+
+Next, finding observations where the RIVER is SCM and DDT bigger than 4.0. We set RIVER equal to "SCM" and DDT>4.0.
+```{r}
+#FIXME
+sbst=with(ddt,table(SPECIES=="LMBASS", WEIGHT>800))
+```
