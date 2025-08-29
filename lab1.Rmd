@@ -45,12 +45,27 @@ class(ddt$WEIGHT)
 ```
 Next, finding observations with SPECIES, LMBASS and WEIGHT bigger than 800gms. We set species equal to "LMBASS" and WEIGHT>800.
 ```{r}
-#FIXME
-sbst=with(ddt,table(SPECIES=="LMBASS", WEIGHT>800))
+with(ddt, ddt[WEIGHT>800 & SPECIES=="LMBASS",])
 ```
 
 Next, finding observations where the RIVER is SCM and DDT bigger than 4.0. We set RIVER equal to "SCM" and DDT>4.0.
 ```{r}
 #FIXME
-sbst=with(ddt,table(SPECIES=="LMBASS", WEIGHT>800))
+with(ddt, ddt[RIVER=="SCM" & DDT>4.0,])
 ```
+
+## Task 4
+The mean of length of fish:
+```{r}
+mean(ddt$LENGTH)
+```
+Finding the standard deviation of weight.
+```{r}
+sd(ddt$WEIGHT)
+```
+Verifying length vs weight
+```{r}
+plot(ddt$LENGTH, ddt$WEIGHT, ylab="LENGTH", xlab="WEIGHT")
+1
+```
+Last value of v/20:
