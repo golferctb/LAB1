@@ -69,3 +69,95 @@ plot(ddt$LENGTH, ddt$WEIGHT, ylab="LENGTH", xlab="WEIGHT")
 1
 ```
 Last value of v/20:
+```{r}
+v=1:20
+v/20
+```
+## Task 5
+Table of rivers
+```{r}
+# Turning RIVERS into subtable.
+rivers=with(ddt, table(RIVER))
+rivers
+```
+Creating color coded bar plot.
+```{r}
+barplot(rivers, col=c("red", "orange", "green", "blue"))
+```
+Creating a table of rivers crossed with species of fish.
+```{r}
+# Rivers crossed with fish.
+rcf <- with(ddt, c(RIVER, SPECIES))
+```
+Making a barplot with rivers crossed with species of fish.
+```{r}
+# Rivers crossed with fish.
+fcr <- with(ddt, table(SPECIES, RIVER))
+barplot(fcr)
+```
+
+## Task 6
+Making pie chart of fish species.
+```{r}
+pdata <- with(ddt, table(SPECIES))
+pie(pdata, col=1:3)
+```
+Making pie chart of rivers
+```{r}
+ridata <- with(ddt, table(RIVER))
+pie(ridata, col=1:4)
+```
+
+## Task 7
+Making a boxplot of the variable DDT.
+```{r}
+boxplot(with(ddt, table(DDT)))
+```
+Making a boxplot of the variable WEIGHT.
+```{r}
+boxplot(with(ddt, table(WEIGHT)))
+```
+Making a boxplot of the variable LENGTH
+```{r}
+boxplot(with(ddt, table(LENGTH))) 
+```
+
+## Task 8
+Making a coplot of LENGTH Vs WEIGHT given RIVER
+```{r}
+fishcol=with(ddt,ifelse(SPECIES=="CCATFISH","Red",
+                        ifelse(SPECIES=="SMBUFFALO","Blue","Green")))
+rivcol=with(ddt, ifelse(RIVER=="FCM","Red",
+                        ifelse(RIVER=="LCM","Blue",
+                               ifelse(RIVER=="SCM","Green","Black"))))
+coplot(WEIGHT~LENGTH|RIVER,data=ddt,col=fishcol)
+```
+Making a coplot of DDT Vs WEIGHT given SPECIES
+```{r}
+coplot(DDT~WEIGHT|SPECIES,data=ddt,col=fishcol)
+```
+
+## Task 9
+Create first ggplot2 graph.
+```{r}
+library(ggplot2)
+ggplot(ddt, aes(x = SPECIES, y = WEIGHT, fill = RIVER)) +
+  geom_boxplot(outlier.shape = 16, outlier.color = "black") +
+  scale_fill_manual(values = c("FCM" = "red", "LCM" = "orange", "SCM" = "green", "TRM" = "purple")) +
+  labs(title = "Cale Bible",
+       x = "SPECIES",
+       y = "WEIGHT",
+       fill = "RIVER") +
+  theme_minimal()
+```
+Create ggplot2 graph.
+```{r}
+ggplot(ddt, aes(x = RIVER, y = LENGTH, fill = SPECIES)) +
+  geom_violin() +
+  scale_fill_manual(values = c("CCATFISH" = "red", "LMBASS" = "green", "SMBUFFALO" = "blue")) +
+  labs(title = "Cale Bible",
+       x = "SPECIES",
+       y = "WEIGHT",
+       fill = "RIVER") +
+  theme_minimal()
+```
