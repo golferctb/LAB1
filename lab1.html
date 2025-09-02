@@ -1480,7 +1480,7 @@ border-radius: 0px;
 
 <h1 class="title toc-ignore">Testing for Lab 1</h1>
 <h4 class="author">Cale Bible</h4>
-<h4 class="date">r Sys.date()</h4>
+<h4 class="date">09-02-2025</h4>
 
 </div>
 
@@ -1537,8 +1537,7 @@ than 800gms. We set species equal to “LMBASS” and WEIGHT&gt;800.</p>
 ## 144   TRM  345  LMBASS     36   1433 1.9</code></pre>
 <p>Next, finding observations where the RIVER is SCM and DDT bigger than
 4.0. We set RIVER equal to “SCM” and DDT&gt;4.0.</p>
-<pre class="r"><code>#FIXME
-with(ddt, ddt[RIVER==&quot;SCM&quot; &amp; DDT&gt;4.0,])</code></pre>
+<pre class="r"><code>with(ddt, ddt[RIVER==&quot;SCM&quot; &amp; DDT&gt;4.0,])</code></pre>
 <pre><code>##    RIVER MILE  SPECIES LENGTH WEIGHT DDT
 ## 16   SCM    1 CCATFISH     45    984 9.1
 ## 17   SCM    1 CCATFISH     43    965 7.8

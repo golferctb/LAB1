@@ -1,7 +1,7 @@
 ---
-title: "Testing for Lab 1"
+title: "Lab 1"
 author: "Cale Bible"
-date: "r Sys.date()"
+date: "09-02-2025"
 output: 
   html_document: 
     toc: yes
@@ -50,7 +50,6 @@ with(ddt, ddt[WEIGHT>800 & SPECIES=="LMBASS",])
 
 Next, finding observations where the RIVER is SCM and DDT bigger than 4.0. We set RIVER equal to "SCM" and DDT>4.0.
 ```{r}
-#FIXME
 with(ddt, ddt[RIVER=="SCM" & DDT>4.0,])
 ```
 
